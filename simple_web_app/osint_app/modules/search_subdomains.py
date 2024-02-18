@@ -10,13 +10,13 @@ DATE = datetime.now().strftime('%d_%m_%Y')
 def collect_data(domain):
     response = requests.get(connection_to_services.URL + f'{domain}/subdomains?limit=1000',
                             headers=connection_to_services.HEADERS)
-    with open(f'./logs/{domain}-{DATE}.json', 'w') as file:
+    with open(f'./simple_web_app/logs/{domain}-{DATE}.json', 'w') as file:
         json.dump(response.json(), file, indent=4, ensure_ascii=False)
     return response
 
 
 def get_json(filename):
-    with open(f'./logs/{filename}.json', 'r', encoding='utf-8') as file:
+    with open(f'./simple_web_app/logs/{filename}.json', 'r', encoding='utf-8') as file:
         json_res = json.load(file)
     return json_res
 

@@ -27,11 +27,11 @@ def make_single_record(item, writer):
 
 def make_report(domain):
     data = parse_collection(collect_data(domain))
-    with open(f'./reports/{domain}-{DATE}.csv', mode='w', encoding='utf-8') as w_file:
+    with open(f'./simple_web_app/reports/{domain}-{DATE}.csv', mode='w', encoding='utf-8') as w_file:
         writer = csv.DictWriter(w_file, fieldnames=HEADER, delimiter=';', lineterminator='\r')
         writer.writeheader()
     threads = list()
-    with open(f'./reports/{domain}-{DATE}.csv', mode='a', encoding='utf-8') as w_file:
+    with open(f'./simple_web_app/reports/{domain}-{DATE}.csv', mode='a', encoding='utf-8') as w_file:
         writer = csv.DictWriter(w_file, fieldnames=HEADER, delimiter=';', lineterminator='\r')
         for item in data:
             x = threading.Thread(target=make_single_record, args=(item, writer,))
