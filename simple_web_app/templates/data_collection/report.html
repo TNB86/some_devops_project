@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block links %}
+    <font color="#e0ffff">OSINT application</font>
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'collect_data' %}" class="top-menu"></a>
+    <b>Organization and it data</b>
+    <br>
+    <table>
+        <tbody>
+        <tr>
+            <th>
+                <label for="id_name_of_organization">Organization title:</label>
+            </th>
+            <td>
+                <label>{{ name }}</label>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="id_domains">Domain:</label>
+            </th>
+            <td>
+                <label>{{ domains }}</label>
+                <br>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'download_file' filename %}" download><button>Download report</button></a>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block links %}
+    <font color="#e0ffff">OSINT application</font>
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'collect_data' %}" class="top-menu"></a>
+    <b>Organization and it data</b>
+    <br>
+    <table>
+        <tbody>
+        <tr>
+            <th>
+                <label for="id_name_of_organization">Название организации:</label>
+            </th>
+            <td>
+                <label>{{ name }}<label>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="id_domains">Домены организации:</label>
+            </th>
+            <td>
+                <label>{{ domains }}</label>
+                <br>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <b>Подождите, идёт сканирование...</b>
+{% endblock %}

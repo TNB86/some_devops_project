@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block links %}
+    <font color="#e0ffff">OSINT application</font>
+{% endblock %}
+
+{% block content %}
+{#    <a href="{% url 'collect_data' %}" class="top-menu"></a>#}
+    <b>Enter organization title and domain</b>
+    <form method="POST">
+    {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Start search</button>
+    </form>
+{% endblock %}
